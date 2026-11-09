@@ -1,0 +1,32 @@
+{
+  "name": "ott/brand-cleanup",
+  "description": "Console command to clean up manufacturers (brands): merge duplicates, free clean brand URLs, rebuild SEO URLs and product counts.",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Pavel Tyulnev",
+      "email": "p.tyulnev@the-platform-group.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ott\\BrandCleanup\\": "src/"
+    }
+  },
+  "require": {
+    "shopware/core": ">=6.4, <6.5"
+  },
+  "extra": {
+    "shopware-plugin-class": "Ott\\BrandCleanup\\OttBrandCleanup",
+    "label": {
+      "de-DE": "Marken aufräumen",
+      "en-GB": "Brand cleanup"
+    },
+    "description": {
+      "de-DE": "Console-Command ott:brands:cleanup: Hersteller-Duplikate zusammenführen, saubere Marken-URLs freimachen, SEO-URLs und Produktzahlen neu aufbauen.",
+      "en-GB": "Console command ott:brands:cleanup."
+    }
+  }
+}

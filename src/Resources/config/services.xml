@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="Ott\BrandCleanup\Service\BrandCleanupService">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="product_manufacturer.repository"/>
+            <argument type="service" id="seo_url.repository"/>
+            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlUpdater"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="slugify"/>
+            <argument type="service" id="Cbax\ModulManufacturers\Components\ManufacturerSeo" on-invalid="null"/>
+            <argument type="service" id="Cbax\ModulManufacturers\Components\ManufacturersHelper" on-invalid="null"/>
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheClearer"/>
+            <argument>%kernel.project_dir%</argument>
+        </service>
+
+        <service id="Ott\BrandCleanup\Command\BrandCleanupCommand">
+            <argument type="service" id="Ott\BrandCleanup\Service\BrandCleanupService"/>
+            <tag name="console.command"/>
+        </service>
+    </services>
+</container>
